@@ -1,0 +1,30 @@
+good morning mam , i ma jinal kotadia nd i am woring with sk.
+our project name is jarvis which is a vir ass.
+jarvis means just a rather very intelligent system.
+the idea of it is highly motivated from a sci fi movie of marvel cenimetic universe ie ironman.
+it is  aspeech recog enabled ai bot.
+
+virtual ass is needed because with it one can give equal opp to all the crucial tasks. presence of people is required for some tasks but with the help of jarvis this can be solved.
+
+as frontend dn backend we have used microphone nd python respectively.
+we have used project modules as mentioned.
+
+language that we have used for coding is python.
+it is a speech triggered bot.
+for speechrecognition we will be using speechrecog library in python and for text to speech function of the bot pyttsx3 library is used.
+the text is processed nd is actually used to call the methods or functions that r automated nd simply do the task that is asked for.
+
+the foll func can be performed by jarvis which are web browser automation , open wikipedis, yt, goggele, etc, it can send whatapss messages to anyone, it can also open nd close various apps such as vscode, telegram, chrome, etc,
+
+so here is the snip of our code.
+
+brief details of libraries used are :
+pyttsx3 : it is text to speech conversion library in python nd also works  offline. we seperately need to install it by using pip install pyttsx3.
+speechrecognition : it is used for home automation , ai, etc.. unlike pyttsx3 it cannot be used offline. goggle speech recognition is one of the easiest to use.it also needs to be seperately installed .
+pywhatkit : some features of pywhatkit are, it can send whatsapp mess, play yt video, perform google search nd fetch information. it can be installed using pip install pywhatkit.
+
+wikipedia : wiki is used to give information of any topic asked for. in order to extract data from wikipedia we must install it using..
+datetime : datetime module need not to be installed externally.it provides num of func to deal with dates, times, nd time intervals
+webbrowser : it is a convinient web browser controller, it accepts url as argument nd opens requested page using default browser.
+os : it provide functions that can ineract with operating sys. it can be used to read or write a file, manipulate paths, create temporary files nd directories, etc..
+smptlib : simple mail transfer protocol is used to handle the email transfer using python. it allows user to send mail to another.

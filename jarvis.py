@@ -9,7 +9,7 @@ import pywhatkit #pip install pywhatkit
 import pyautogui
 import keyboard
 import pyjokes
-from PyDictionar import PyDictionary as pd
+from PyDictionary import PyDictionary as pd
 
 
 engine = pyttsx3.init('sapi5')
@@ -510,7 +510,6 @@ def TaskExe():
             Dict()
 
         
-
 
         elif 'quit' in query:
             print("Quitting mam. Thank you for your time.")

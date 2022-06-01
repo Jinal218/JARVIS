@@ -6,6 +6,10 @@ import webbrowser
 import os
 import smtplib
 import pywhatkit #pip install pywhatkit
+import pyautogui
+import keyboard
+import pyjokes
+from PyDictionar import PyDictionary as pd
 
 
 engine = pyttsx3.init('sapi5')
@@ -177,6 +181,125 @@ def TaskExe():
         print("App has been closed Mam!")
         speak("App has been closed Mam!")
 
+    def Screenshot():
+        kk = pyautogui.screenshot()
+        speak("Ok mam, what should I name the file?")
+        path = takeCommand()
+        path1name = path + ".png"
+        path1 = "C:\\Users\\LENOVO\\Pictures\\Screenshots\\"+ path1name
+        kk.save(path1)
+        os.startfile("C:\\Users\\LENOVO\\Pictures\\Screenshots")
+        speak("Here is your screenschot!")
+
+    def YoutubeAuto():
+        print("Whats your command?")
+        speak("Whats your command?")
+        comm = takeCommand()
+
+        if 'pause' in comm:
+            keyboard.press('space bar')
+        
+        elif 'restart' in comm:
+            keyboard.press('0')
+
+        elif 'mute' in comm:
+            keyboard.press('m')
+        
+        elif 'skip' in comm:
+            keyboard.press('l')
+
+        elif 'back' in comm:
+            keyboard.press('j')
+        
+        elif 'fullscreen' in comm:
+            keyboard.press('f')
+
+        elif 'filmmode' in comm:
+            keyboard.press('t')
+
+        elif 'next video' in comm:
+            keyboard.press_and_release('shift + n')
+
+        elif 'previous video' in comm:
+            keyboard.press_and_release('shift + p')
+
+        elif 'decrease volume' in comm:
+            keyboard.press('F2')
+
+        elif 'increase volume' in comm:
+            keyboard.press('F3')
+
+        elif 'exit full screen' in comm:
+            keyboard.press('Escape')
+
+        speak('Done Mam');
+
+    def ChromeAuto():
+        print('Chrome automation startedd!')
+        speak('Chrome automation startedd!')
+
+        comd = takeCommand()
+
+        if 'close this tab' in comd:
+            keyboard.press_and_release('ctrl + w')
+
+        elif 'open new tab' in comd:
+            keyboard.press_and_release('ctrl + t')
+
+        elif 'open new window' in comd:
+            keyboard.press_and_release('ctrl + n')
+
+        elif 'open history' in comd:
+            keyboard.press_and_release('ctrl + h')
+
+        elif 'previous page' in comd:
+            keyboard.press_and_release('alt + left arrow')
+
+        elif 'next page' in comd:
+            keyboard.press_and_release('alt + right arrow')
+
+        elif 'open download page' in comd:
+            keyboard.press_and_release('ctrl + j')
+
+        speak('Done mam!')
+
+    def Dict():
+        print('Ok  mam, tell me the problem')
+        speak('Ok  mam, tell me the problem')
+
+        probl = takeCommand()
+
+        if 'meaning' in probl:
+            probl = probl.replace("what is the","")
+            probl = probl.replace("jarvis","")
+            probl = probl.replace("of","")
+            probl = probl.replace("meaning of","")
+            result = pd.meaning(probl)
+            print('The meaning of {probl} is {result}')
+            speak('The meaning of {probl} is {result}')
+
+        elif 'synonym' in probl:
+            probl = probl.replace("what is the","")
+            probl = probl.replace("jarvis","")
+            probl = probl.replace("of","")
+            probl = probl.replace("synonym of","")
+            result = pd.synonym(probl)
+            speak('The synonym of {probl} is {result}')
+            print('The synonym of {probl} is {result}')
+
+        elif 'antonym' in probl:
+            probl = probl.replace("what is the","")
+            probl = probl.replace("jarvis","")
+            probl = probl.replace("of","")
+            probl = probl.replace("antonym of","")
+            result = pd.antonym(probl)
+            print('The antonym of {probl} is {result}')
+            speak('The antonym of {probl} is {result}')
+
+        print('Exited dictionary!')
+        speak('Exited dictionary!') 
+
+
     while True:
         #if __name__ == "__main__":
          #wishMe()
@@ -237,6 +360,7 @@ def TaskExe():
             speak("Ok Mam, Launching...")
             query = query.replace("jarvis","")
             query = query.replace("website","")
+            query = query.replcae(" ","")
             web1 = query.replace("open","")
             web2 = 'https://www.' + web1 + '.com'
             webbrowser.open(web2)
@@ -303,6 +427,90 @@ def TaskExe():
 
         elif 'my location' in query:
             webbrowser.open('https://www.google.com/maps/@23.0719488,72.5581824,12z')
+
+
+        elif 'screenshot' in query:
+            Screenshot()
+
+        elif 'pause' in query:
+            keyboard.press('space bar')
+        
+        elif 'restart' in query:
+            keyboard.press('0')
+
+        elif 'mute' in query:
+            keyboard.press('m')
+        
+        elif 'skip' in query:
+            keyboard.press('l')
+
+        elif 'back' in query:
+            keyboard.press('j')
+        
+        elif 'fullscreen' in query:
+            keyboard.press('f')
+
+        elif 'filmmode' in query:
+            keyboard.press('t')
+
+        elif 'next video' in query:
+            keyboard.press_and_release('shift + n')
+
+        elif 'previous video' in query:
+            keyboard.press_and_release('shift + p')
+
+        elif 'decrease volume' in query:
+            keyboard.press('F2')
+
+        elif 'increase volume' in query:
+            keyboard.press('F3')
+
+        elif 'exit full screen' in query:
+            keyboard.press('Escape')
+        
+        elif 'youtube auto' in query:
+            YoutubeAuto()
+
+        elif 'close this tab' in query:
+            keyboard.press_and_release('ctrl + w')
+
+        elif 'open new tab' in query:
+            keyboard.press_and_release('ctrl + t')
+
+        elif 'open new window' in query:
+            keyboard.press_and_release('ctrl + n')
+
+        elif 'open history' in query:
+            keyboard.press_and_release('ctrl + h')
+
+        elif 'previous page' in query:
+            keyboard.press_and_release('alt + left arrow')
+
+        elif 'next page' in query:
+            keyboard.press_and_release('alt + right arrow')
+
+        elif 'open download page' in query:
+            keyboard.press_and_release('ctrl + j')
+
+        elif 'chrome automation' in query:
+            ChromeAuto()
+
+        elif 'joke' in query:
+            get = pyjokes.get_joke()
+            speak(get)
+
+        elif 'repeat me' in query:
+            print('Okay mam!')
+            speak('Okay mam!')
+            rm = takeCommand()
+            print('You said : {rm}')
+            speak('You said : {rm}')
+
+        elif 'open dictinary' in query:
+            Dict()
+
+        
+
 
         elif 'quit' in query:
             print("Quitting mam. Thank you for your time.")

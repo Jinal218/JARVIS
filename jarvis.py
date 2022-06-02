@@ -10,8 +10,9 @@ import pyautogui
 import keyboard
 import pyjokes
 from PyDictionary import PyDictionary as pd
-from playsound import playsound as ps
+from playsound import playsound
 from googletrans import Translator
+import psutil
 
 
 engine = pyttsx3.init('sapi5')
@@ -277,8 +278,8 @@ def TaskExe():
             probl = probl.replace("of","")
             probl = probl.replace("meaning of","")
             result = pd.meaning(probl)
-            print('The meaning of {probl} is {result}')
-            speak('The meaning of {probl} is {result}')
+            print(f'The meaning of {probl} is {result}')
+            speak(f'The meaning of {probl} is {result}')
 
         elif 'synonym' in probl:
             probl = probl.replace("what is the","")
@@ -286,8 +287,8 @@ def TaskExe():
             probl = probl.replace("of","")
             probl = probl.replace("synonym of","")
             result = pd.synonym(probl)
-            speak('The synonym of {probl} is {result}')
-            print('The synonym of {probl} is {result}')
+            print(f'The synonym of {probl} is {result}')
+            speak(f'The synonym of {probl} is {result}')
 
         elif 'antonym' in probl:
             probl = probl.replace("what is the","")
@@ -295,8 +296,8 @@ def TaskExe():
             probl = probl.replace("of","")
             probl = probl.replace("antonym of","")
             result = pd.antonym(probl)
-            print('The antonym of {probl} is {result}')
-            speak('The antonym of {probl} is {result}')
+            print(f'The antonym of {probl} is {result}')
+            speak(f'The antonym of {probl} is {result}')
 
         print('Exited dictionary!')
         speak('Exited dictionary!') 
@@ -326,7 +327,7 @@ def TaskExe():
         print("Tell me the line!")
         speak("Tell me the line!")
         line = TakeHindi()
-        result = translator.tranlate(line)
+        result = Translator.tranlate(line)
         Text = result.text
         speak(f"The translation for thids line is :"+Text) 
 
@@ -557,6 +558,12 @@ def TaskExe():
 
         elif 'translate' in query:
             Tran()
+
+        elif 'battery' in query:
+            bb = psutil.sensors_battery()
+            Text = bb.text
+            print("The battery stats are: "+Text)
+            speak(f"The battery stats are: {Text}")
 
 
         elif 'quit' in query:

@@ -10,6 +10,8 @@ import pyautogui
 import keyboard
 import pyjokes
 from PyDictionary import PyDictionary as pd
+from playsound import playsound as ps
+from googletrans import Translator
 
 
 engine = pyttsx3.init('sapi5')
@@ -299,6 +301,34 @@ def TaskExe():
         print('Exited dictionary!')
         speak('Exited dictionary!') 
 
+    def TakeHindi():
+    #It takes microphone input from the user and returns string output
+
+        command = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Listening...")
+            command.pause_threshold = 1
+            audio = command.listen(source)
+
+        try:
+            print("Recognizing...")
+            query = command.recognize_google(audio, language='hi')
+            print(f"User said: {query}\n")
+
+        except Exception as e:
+            #print(e)
+            #speak("Say that again please...")
+            print('Say that again please...')
+            return "None"
+        return query.lower()
+
+    def Tran():
+        print("Tell me the line!")
+        speak("Tell me the line!")
+        line = TakeHindi()
+        result = translator.tranlate(line)
+        Text = result.text
+        speak(f"The translation for thids line is :"+Text) 
 
     while True:
         #if __name__ == "__main__":
@@ -509,7 +539,25 @@ def TaskExe():
         elif 'open dictinary' in query:
             Dict()
 
-        
+        elif 'alarm' in query:
+            speak('Enter the time!')
+            time = input(": Enter the time")
+
+            while True:
+                Time_at = datetime.datetime.now()
+                now = Time_at.strftime("%H:%M:%S")
+
+                if now == time:
+                    speak("Time to wake up mam!")
+                    playsound('Soy-bgm.mp3')
+                    speak("Alarm stoped!")
+                
+                elif now > time:
+                    break
+
+        elif 'translate' in query:
+            Tran()
+
 
         elif 'quit' in query:
             print("Quitting mam. Thank you for your time.")

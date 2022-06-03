@@ -1,0 +1,11 @@
+pyttsx3
+speechRecognition
+wikipedia
+pywhatkit
+pyautogui
+keyboard
+pyjokes
+Py-Dictionary
+playsound
+googletrans
+psutil

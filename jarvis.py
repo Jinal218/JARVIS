@@ -1,5 +1,6 @@
 import pyttsx3 #pip install pyttsx3
 import speech_recognition as sr #pip install speechRecognition
+import pyaudio
 import datetime
 import wikipedia #pip install wikipedia
 import webbrowser
@@ -9,7 +10,7 @@ import pywhatkit #pip install pywhatkit
 import pyautogui
 import keyboard
 import pyjokes
-from PyDictionary import PyDictionary as pd
+import pydictionary as pd
 from playsound import playsound
 from googletrans import Translator
 import psutil
@@ -87,7 +88,7 @@ def TaskExe():
         name = takeCommand()
 
         if 'Shruti' in name:
-            speak("What should I message ?")
+            speak(f"What should I message ?")
             msg = takeCommand()
             speak("Tell me the time Mam !")
             speak("Time in hour!")

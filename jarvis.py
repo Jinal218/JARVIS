@@ -7,13 +7,13 @@ import webbrowser
 import os
 import smtplib
 import pywhatkit #pip install pywhatkit
-import pyautogui
-import keyboard
-import pyjokes
-import pydictionary as pd
-from playsound import playsound
-from googletrans import Translator
-import psutil
+import pyautogui #pip install pyautogui
+import keyboard #pip install keyboard
+import pyjokes #pip install pyjokes
+import pydictionary as pd #pip install Py-Dictionary
+from playsound import playsound #pip install playsound
+from googletrans import Translator #pip install googletrans
+import psutil #pip install psutil
 
 
 engine = pyttsx3.init('sapi5')
@@ -566,6 +566,18 @@ def TaskExe():
             print("The battery stats are: "+Text)
             speak(f"The battery stats are: {Text}")
 
+        elif 'remember' in query:
+            rem = query.replace("remember that","")
+            rem = query.replace("Jarvis","")
+            print("You told me to remind that:"+rem)
+            speak("You told me to remind that:"+rem)
+            remember = open('data.txt','w')
+            remember.write(rem)
+            remember.close()
+
+        elif 'remind me' in query:
+            remember = open('data.txt','r')
+            speak("You told me that:"+remember.read())
 
         elif 'quit' in query:
             print("Quitting mam. Thank you for your time.")

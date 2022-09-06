@@ -98,6 +98,17 @@ def TaskExe():
             pywhatkit.sendwhatmsg("+919898025928",msg,hour,min,10)
             speak("Ok Mam, sending Whatsapp message !")
         
+        elif 'Abhay' in name:
+            speak("What should I message ?")
+            msg = takeCommand()
+            speak("Tell me the time Mam !")
+            speak("Time in hour!")
+            hour = int(takeCommand())
+            speak("Time in minutes!")
+            min = int(takeCommand())
+            pywhatkit.sendwhatmsg("+916359421917",msg,hour,min,10)
+            speak("Ok Mam, sending Whatsapp message !")
+        
         elif 'riya' in name:
             speak("What should I message ?")
             msg = takeCommand()
@@ -122,8 +133,8 @@ def TaskExe():
 
         else:
             speak("Tell me the phone number please!")
-            phone = int(takeCommand())
-            #ph = '+91' = phone
+            phone = long(takeCommand())
+            # ph = '+91' = phone
             speak("What should I message ?")
             msg = takeCommand()
             speak("Tell me the time Mam !")
@@ -328,7 +339,7 @@ def TaskExe():
         print("Tell me the line!")
         speak("Tell me the line!")
         line = TakeHindi()
-        result = Translator.tranlate(line)
+        result = Translator.translate(line)
         Text = result.text
         speak(f"The translation for thids line is :"+Text) 
 
@@ -413,9 +424,9 @@ def TaskExe():
         elif 'play' in query:
             Music()
 
-        elif 'send whatsapp message to' in query:
+        elif 'send whatsapp message' in query:
             query = query.replace("jarvis","")
-            query = query.replace("send whatsapp message to","")
+            query = query.replace("send whatsapp message","")
             Whatsapp()
 
         elif 'the time' in query:

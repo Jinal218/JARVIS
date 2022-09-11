@@ -13,7 +13,9 @@ import pyjokes #pip install pyjokes
 import pydictionary as pd #pip install Py-Dictionary
 from playsound import playsound #pip install playsound
 from googletrans import Translator #pip install googletrans
-import psutil #pip install psutil
+import psutil
+
+from automation import WhatsappChat, WhatsappVC, Whatsappchat #pip install psutil
 
 
 engine = pyttsx3.init('sapi5')
@@ -206,78 +208,6 @@ def TaskExe():
         os.startfile("C:\\Users\\LENOVO\\Pictures\\Screenshots")
         speak("Here is your screenschot!")
 
-    def YoutubeAuto():
-        print("Whats your command?")
-        speak("Whats your command?")
-        comm = takeCommand()
-
-        if 'pause' in comm:
-            keyboard.press('space bar')
-        
-        elif 'restart' in comm:
-            keyboard.press('0')
-
-        elif 'mute' in comm:
-            keyboard.press('m')
-        
-        elif 'skip' in comm:
-            keyboard.press('l')
-
-        elif 'back' in comm:
-            keyboard.press('j')
-        
-        elif 'fullscreen' in comm:
-            keyboard.press('f')
-
-        elif 'filmmode' in comm:
-            keyboard.press('t')
-
-        elif 'next video' in comm:
-            keyboard.press_and_release('shift + n')
-
-        elif 'previous video' in comm:
-            keyboard.press_and_release('shift + p')
-
-        elif 'decrease volume' in comm:
-            keyboard.press('F2')
-
-        elif 'increase volume' in comm:
-            keyboard.press('F3')
-
-        elif 'exit full screen' in comm:
-            keyboard.press('Escape')
-
-        speak('Done Mam');
-
-    def ChromeAuto():
-        print('Chrome automation startedd!')
-        speak('Chrome automation startedd!')
-
-        comd = takeCommand()
-
-        if 'close this tab' in comd:
-            keyboard.press_and_release('ctrl + w')
-
-        elif 'open new tab' in comd:
-            keyboard.press_and_release('ctrl + t')
-
-        elif 'open new window' in comd:
-            keyboard.press_and_release('ctrl + n')
-
-        elif 'open history' in comd:
-            keyboard.press_and_release('ctrl + h')
-
-        elif 'previous page' in comd:
-            keyboard.press_and_release('alt + left arrow')
-
-        elif 'next page' in comd:
-            keyboard.press_and_release('alt + right arrow')
-
-        elif 'open download page' in comd:
-            keyboard.press_and_release('ctrl + j')
-
-        speak('Done mam!')
-
     def Dict():
         print('Ok  mam, tell me the problem')
         speak('Ok  mam, tell me the problem')
@@ -425,9 +355,34 @@ def TaskExe():
             Music()
 
         elif 'send whatsapp message' in query:
-            query = query.replace("jarvis","")
-            query = query.replace("send whatsapp message","")
-            Whatsapp()
+            name = query.replace("jarvis","")
+            name = name.replace("send whatsapp message","")
+            name = name.replace("to", "")
+            Name = str(name)
+            speak(f"Whats the message for {Name}?")
+            Msg = takeCommand()
+            from automation import WhatsappMsg
+            WhatsappMsg(Name, Msg)
+
+        elif 'whatsapp call' in query:
+            from automation import WhatsappCall
+            name = query.replace("whatsapp call", "")
+            name = name.replace("jarvis", "")
+            Name =str(name)
+            WhatsappCall(Name)
+
+        elif 'open whatsapp chat' in query:
+            speak("Of whom?")
+            name = takeCommand()
+            from automation import WhatsappCall            
+            WhatsappChat(Name)
+
+        elif 'whatsapp vediocall' in query:
+            from automation import WhatsappCall
+            name = query.replace("whatsapp call", "")
+            name = name.replace("jarvis", "")
+            Name =str(name)
+            WhatsappVC(Name)
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
@@ -471,7 +426,6 @@ def TaskExe():
         elif 'my location' in query:
             webbrowser.open('https://www.google.com/maps/@23.0719488,72.5581824,12z')
 
-
         elif 'screenshot' in query:
             Screenshot()
 
@@ -512,7 +466,10 @@ def TaskExe():
             keyboard.press('Escape')
         
         elif 'youtube auto' in query:
-            YoutubeAuto()
+            print("Youtube automation started!")
+            speak("Youtube automation Started!")
+            from automation import YoutubeAuto
+            YoutubeAuto(query)
 
         elif 'close this tab' in query:
             keyboard.press_and_release('ctrl + w')
@@ -536,7 +493,10 @@ def TaskExe():
             keyboard.press_and_release('ctrl + j')
 
         elif 'chrome automation' in query:
-            ChromeAuto()
+            print("Chrome automation started.")
+            speak("Chrome automation started.")
+            from automation import ChromeAuto
+            ChromeAuto(query)
 
         elif 'joke' in query:
             get = pyjokes.get_joke()

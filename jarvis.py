@@ -15,7 +15,7 @@ from playsound import playsound #pip install playsound
 from googletrans import Translator #pip install googletrans
 import psutil
 
-from automation import WhatsappChat, WhatsappVC, Whatsappchat #pip install psutil
+# from automation import WhatsappChat, WhatsappVC, Whatsappchat #pip install psutil
 
 
 engine = pyttsx3.init('sapi5')
@@ -135,8 +135,9 @@ def TaskExe():
 
         else:
             speak("Tell me the phone number please!")
-            phone = long(takeCommand())
-            # ph = '+91' = phone
+            phone = str(takeCommand())
+            ph = '+91'
+            phnum = ph + phone
             speak("What should I message ?")
             msg = takeCommand()
             speak("Tell me the time Mam !")
@@ -144,7 +145,7 @@ def TaskExe():
             hour = int(takeCommand())
             speak("Time in minutes!")
             min = int(takeCommand())
-            pywhatkit.sendwhatmsg(phone,msg,hour,min,10)
+            pywhatkit.sendwhatmsg(phnum,msg,hour,min,10)
             speak("Ok Mam, sending Whatsapp message !")
 
     def OpenApps():
@@ -358,31 +359,31 @@ def TaskExe():
             name = query.replace("jarvis","")
             name = name.replace("send whatsapp message","")
             name = name.replace("to", "")
-            Name = str(name)
-            speak(f"Whats the message for {Name}?")
-            Msg = takeCommand()
-            from automation import WhatsappMsg
-            WhatsappMsg(Name, Msg)
+            # Name = str(name)
+            # speak(f"Whats the message for {Name}?")
+            # Msg = takeCommand()
+            # from automation import WhatsappMsg
+            Whatsapp()
 
-        elif 'whatsapp call' in query:
-            from automation import WhatsappCall
-            name = query.replace("whatsapp call", "")
-            name = name.replace("jarvis", "")
-            Name =str(name)
-            WhatsappCall(Name)
+        # elif 'whatsapp call' in query:
+        #     from automation import WhatsappCall
+        #     name = query.replace("whatsapp call", "")
+        #     name = name.replace("jarvis", "")
+        #     Name =str(name)
+        #     WhatsappCall(Name)
 
-        elif 'open whatsapp chat' in query:
-            speak("Of whom?")
-            name = takeCommand()
-            from automation import WhatsappCall            
-            WhatsappChat(Name)
+        # elif 'open whatsapp chat' in query:
+        #     speak("Of whom?")
+        #     name = takeCommand()
+        #     from automation import WhatsappCall            
+        #     WhatsappChat(Name)
 
-        elif 'whatsapp vediocall' in query:
-            from automation import WhatsappCall
-            name = query.replace("whatsapp call", "")
-            name = name.replace("jarvis", "")
-            Name =str(name)
-            WhatsappVC(Name)
+        # elif 'whatsapp vediocall' in query:
+            # from automation import WhatsappCall
+            # name = query.replace("whatsapp call", "")
+            # name = name.replace("jarvis", "")
+            # Name =str(name)
+            # WhatsappVC(Name)
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")

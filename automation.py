@@ -7,57 +7,57 @@ import keyboard
 from time import sleep
 
 def WhatsappMsg(name, msg):
-    startfile("whatsapp.com") #wp - properties
+    webbrowser.open("https://web.whatsapp.com/") #wp - properties
     sleep(10)
-    click(x=105, y=247)
+    click(x=111, y=243)
     sleep(1)
     write(name)
     sleep(1)
-    click(x=,y=) #click on first name
+    click(x=179, y=433) #click on first name
     sleep(1)
-    click(x=,y=) #msg for typing
+    click(x=751,y=978) #msg for typing
     sleep(1)
     write(msg)
     press('enter')
 
-def WhatsappCall(name):
-    webbrowser.open("whatsapp.com")
-    sleep(10)
-    click(x=105, y=247)
-    sleep(1)
-    write(name)
-    sleep(2)
-    click(x=,y=) #click on first name
-    sleep(1)
-    click(x=,y=) #msg for typing
-    sleep(1)
-    click(x=,y=) #click on call button
+# def WhatsappCall(name):
+#     webbrowser.open("https://web.whatsapp.com/")
+#     sleep(10)
+#     click(x=105, y=247)
+#     sleep(1)
+#     write(name)
+#     sleep(2)
+#     click(x=179,y=433) #click on first name
+#     sleep(1)
+#     click(x=751,y=978) #msg for typing
+#     sleep(1)
+#     click(x=,y=) #click on call button
 
 
-def WhatsappChat(name):
-    webbrowser.open("whatsapp.com")
-    sleep(10)
-    click(x=105, y=247)
-    sleep(1)
-    write(name)
-    sleep(1)
-    click(x=,y=) #click on first name
-    sleep(1)
-    click(x=,y=) #msg for typing
-    sleep(1)
+# def WhatsappChat(name):
+#     webbrowser.open("whatsapp.com")
+#     sleep(10)
+#     click(x=111, y=243)
+#     sleep(1)
+#     write(name)
+#     sleep(1)
+#     click(x=179,y=433) #click on first name
+#     sleep(1)
+#     click(x=751,y=978) #msg for typing
+#     sleep(1)
    
-def WhatsappVC(name):
-    webbrowser.open("whatsapp.com")
-    sleep(10)
-    click(x=105, y=247)
-    sleep(1)
-    write(name)
-    sleep(2)
-    click(x=,y=) #click on first name
-    sleep(1)
-    click(x=,y=) #msg for typing
-    sleep(1)
-    click(x=,y=) #click on vc button
+# def WhatsappVC(name):
+#     webbrowser.open("whatsapp.com")
+#     sleep(10)
+#     click(x=105, y=247)
+#     sleep(1)
+#     write(name)
+#     sleep(2)
+#     click(x=,y=) #click on first name
+#     sleep(1)
+#     click(x=,y=) #msg for typing
+#     sleep(1)
+#     click(x=,y=) #click on vc button
 
 
 def ChromeAuto(comd):
